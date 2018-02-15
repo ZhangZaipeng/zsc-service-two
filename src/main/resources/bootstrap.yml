@@ -1,0 +1,38 @@
+# service 端口
+server:
+  port: 9006
+
+spring:
+  application:
+    name: zsc-service-two
+  profiles:
+    active: dev
+  cloud:
+    config:
+      discovery:
+        # 使用 eureka 发现配置中心服务
+        enabled: true
+        # 配置中心服务名称/ID
+        service-id: zsc-config
+      # 登录用户名密码
+      username: user
+      password: 12345678
+      # 覆盖本地配置
+      override-none: false
+      fail-fast: true
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+
+# eureka
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    # 服务列表缓存更新时间
+    registryFetchIntervalSeconds: 10
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://127.0.0.1:8761/eureka/}
+  instance:
+    preferIpAddress: true
+    # 心跳间隔
+    leaseRenewalIntervalInSeconds: 10
