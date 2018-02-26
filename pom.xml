@@ -76,6 +76,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
+
+		<!-- Ribbon依赖 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-ribbon</artifactId>
+		</dependency>
 	</dependencies>
 
 
